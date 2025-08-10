@@ -1,0 +1,53 @@
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        int ele = 0;
+        int count = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (count == 0) {
+                count = 1;
+                ele = nums[i];
+            } else if (nums[i] == ele) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        int cnt = 0;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] == ele){
+                cnt++;
+            }
+        }
+        if(cnt >(nums.length/2)){
+            return ele;
+        }
+        return -1;
+    }
+}
+
+// class Solution {
+//     public int majorityElement(int[] nums) {
+//         int n = nums.length / 2;
+//         HashMap<Integer, Integer> map = new HashMap<>();
+
+//         for (int i = 0; i < nums.length; i++) {
+//             if (map.containsKey(nums[i])) {
+//                 int val = map.get(nums[i]);
+//                 val = val + 1;
+//                 map.put(nums[i], val);
+//             } else {
+//                 map.put(nums[i], 1);
+//             }
+//         }
+
+//         for (Integer key : map.keySet()) {
+//             int mx = map.get(key);
+//              if(mx > n){
+//               return key;
+//              }
+//         }
+//         return -1;
+//     }
+// }
