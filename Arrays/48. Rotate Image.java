@@ -19,3 +19,6 @@ class Solution {
         }
     }
 }
+
+==========================================================================
+// In brute force we use another array which takes O(n^2) space complexity
